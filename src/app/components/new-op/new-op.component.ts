@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BalanceService } from '../../balance.service';
-import { Operation } from '../../Models/operation/operation.class';
+
 
 @Component({
   selector: 'app-new-op',
@@ -8,6 +9,7 @@ import { Operation } from '../../Models/operation/operation.class';
   styleUrls: ['./new-op.component.css']
 })
 export class NewOpComponent implements OnInit {
+
   name:string;
   amount:Number;
   type: String;
@@ -18,8 +20,18 @@ export class NewOpComponent implements OnInit {
   ngOnInit(): void {
   }
   addNewOp(event){
-    event.preventDefault()
-     
+    event.preventDefault();
+    const newOperation = {
+      name : this.name,
+      amount: this.amount,
+      type: this.type,
+      commit: this.commit
+    }
+
+    this.operation.addNewOperation(newOperation)
+        .subscribe((data:any)=>{
+          console.log(data)
+        })
   }
 
 }

@@ -1,4 +1,4 @@
-export class Operation{
+export interface Operation{
      name:string;
      amount:Number;
      type: String;

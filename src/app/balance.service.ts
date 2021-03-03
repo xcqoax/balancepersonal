@@ -1,5 +1,7 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Operation } from './Models/operation/operation.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +26,10 @@ export class BalanceService {
 
   }
 
+  addNewOperation(operation:Operation):Observable<Operation>{
+      return this.http.post<Operation>('http://localhost:3200/api/home/add',operation)
+  }
 
 
-  
+
 }
