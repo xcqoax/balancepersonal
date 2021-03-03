@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+.borde{
+    border:1px solid #000000;
+    height: 90vh;
+}
+
+.width80{
+    width: 70%!important;
+    margin:0 auto;
+    
+}
