@@ -4,19 +4,18 @@
         <thead>
           <tr>
             <th scope="col">Type</th>
-            <th scope="col">Date</th>
             <th scope="col">Name</th>
             <th scope="col">Amount</th>
             <th scope="col">Commit</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+            <tr *ngFor="let operation of operations" [ngClass]="{'income': operation.type == 'Income','expense': operation.type == 'Expense' }">
+                <td>{{operation.type}}</td>
+                <td>{{operation.name}}</td>
+                <td>$ {{operation.amount}}</td>
+                <td>{{operation.commit}}</td>
+            </tr>
         </tbody>
       </table>
 </div>

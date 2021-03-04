@@ -8,7 +8,8 @@ import { BalanceService } from '../../balance.service';
 })
 export class ResumeComponent implements OnInit {
 
-operations:{}
+operations:[]
+
 
   constructor(private resume: BalanceService) { 
 
