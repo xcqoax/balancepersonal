@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BalanceService } from '../../balance.service';
 
+
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
@@ -20,9 +21,10 @@ operations:[]
   getResumenPerfil(){
     this.resume.getResumenBalance('/home/alloperations')
           .subscribe((data:any)=>{
-              console.log(data)
+
               this.operations = data
               console.log(this.operations)
+              
           })
 }
 

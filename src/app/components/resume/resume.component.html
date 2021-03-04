@@ -12,6 +12,7 @@
         <tbody>
             <tr *ngFor="let operation of operations" [ngClass]="{'income': operation.type == 'Income','expense': operation.type == 'Expense' }">
                 <td>{{operation.type}}</td>
+                <td>{{operation.date}}</td>
                 <td>{{operation.name}}</td>
                 <td>$ {{operation.amount}}</td>
                 <td>{{operation.commit}}</td>
