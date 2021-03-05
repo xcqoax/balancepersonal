@@ -1,4 +1,8 @@
+
 <div class="width80 mt-5">
+  <div class="alert " *ngIf="isMessage" [ngClass]="{'alert-success': typeMessage == 'success','alert-danger': typeMessage == 'error'}" role="alert">
+    <p>{{message}}</p>
+  </div>
     <form (submit)="addNewOp($event)">
         <div class="form-group">
           <label for="exampleFormControlInput1">Name</label>

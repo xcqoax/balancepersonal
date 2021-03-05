@@ -14,6 +14,7 @@ operations:[]
 
   constructor(private resume: BalanceService) { 
 
+    
        this.getResumenPerfil()
 
   }

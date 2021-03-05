@@ -18,9 +18,14 @@ export class NewOpComponent implements OnInit {
   newdate: String
 
   constructor( private operation:BalanceService, private router: Router) { }
+  
+  isMessage:Boolean;
+  message:String;
+  typeMessage:any;
 
   ngOnInit(): void {
   }
+
   addNewOp(event){
     event.preventDefault();
     this.newdate = moment().format('MMMM Do YYYY')
@@ -34,11 +39,28 @@ export class NewOpComponent implements OnInit {
 console.log(typeof(this.newdate))
     this.operation.addNewOperation(newOperation)
         .subscribe((data:any)=>{
-          console.log(data)
+          console.log(data)  
+          this.typeMessage = data.type
+          this.message = data.message
+          this.isMessage = true;
+          
+          if(this.typeMessage == 'success'){
+
+            setTimeout(() => {
+              this.isMessage = false;
+              this.router.navigate(['/resume'])
+            }, 700);
+          } else if(this.typeMessage == 'error'){
+              
+
+              setTimeout(() => {
+                this.isMessage = false;
+              }, 2000);
+          }
+
+
         })
-setTimeout(() => {
-  this.router.navigate(['/resume'])
-}, 500);
+
         
   }
 
