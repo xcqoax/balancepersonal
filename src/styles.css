@@ -20,3 +20,10 @@
     border-left: 2px solid red;
     background: #d269745b;
 }
+
+@media(max-width:500px){
+    .mytable{
+        width: 90%!important;
+        
+    }
+}

@@ -1,24 +1,29 @@
-<div class="width80 mt-5">
+<div class="width80 mt-5 mytable">
     <p class="text-center mb-5 font-weight-bold">These are all your operations</p>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Type</th>
-            <th scope="col">Date</th>
-            <th scope="col">Name</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Commit</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let operation of operations" [ngClass]="{'income': operation.type == 'Income','expense': operation.type == 'Expense' }">
-                <td>{{operation.type}}</td>
-                <td>{{operation.date}}</td>
-                <td>{{operation.name}}</td>
-                <td>$ {{operation.amount}}</td>
-                <td>{{operation.commit}}</td>
+    
+    
+        <table class="table ">
+          <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Date</th>
+              <th scope="col">Name</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Commit</th>
             </tr>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+              <tr *ngFor="let operation of operations" [ngClass]="{'income': operation.type == 'Income','expense': operation.type == 'Expense' }">
+                  <td>{{operation.type}}</td>
+                  <td>{{operation.date}}</td>
+                  <td>{{operation.name}}</td>
+                  <td>$ {{operation.amount}}</td>
+                  <td>{{operation.commit}}</td>
+              </tr>
+          </tbody>
+        </table>
+    
+    
+
 </div>
 

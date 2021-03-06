@@ -11,8 +11,8 @@ export class BalanceService {
   constructor(private http:HttpClient) {
    }
    getQuery(query:string){
-    const uri=`http://localhost:3200/api/${query}`
-
+    const uri=`https://mybalancepersonal.herokuapp.com/api/${query}`
+    
     return this.http.get(uri)
   }
 
@@ -27,7 +27,7 @@ export class BalanceService {
   }
 
   addNewOperation(operation:Operation):Observable<Operation>{
-      return this.http.post<Operation>('http://localhost:3200/api/home/add',operation)
+      return this.http.post<Operation>('https://mybalancepersonal.herokuapp.com/api/home/add',operation)
   }
 
 
