@@ -28,21 +28,25 @@ export class NewOpComponent implements OnInit {
 
   addNewOp(event){
     event.preventDefault();
+
     this.newdate = moment().format('MMMM Do YYYY')
-    const newOperation = {
-      name : this.name,
-      amount: this.amount,
-      type: this.type,
-      commit: this.commit,
-      date: this.newdate
-    }
-console.log(typeof(this.newdate))
+
+if(this.amount > 0){
+  const newOperation = {
+    name : this.name,
+    amount: this.amount,
+    type: this.type,
+    commit: this.commit,
+    date: this.newdate
+  }
+  console.log(typeof(this.newdate))
     this.operation.addNewOperation(newOperation)
         .subscribe((data:any)=>{
           console.log(data)  
           this.typeMessage = data.type
           this.message = data.message
           this.isMessage = true;
+          
           
           if(this.typeMessage == 'success'){
 
@@ -52,14 +56,18 @@ console.log(typeof(this.newdate))
             }, 700);
           } else if(this.typeMessage == 'error'){
               
-
               setTimeout(() => {
                 this.isMessage = false;
               }, 2000);
           }
-
-
         })
+    }else {
+      this.isMessage = true;
+      this.message = 'Only numbers'
+      this.typeMessage = 'error'
+    }
+
+
 
         
   }
